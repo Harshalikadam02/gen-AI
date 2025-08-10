@@ -11,19 +11,16 @@ client = OpenAI()
 def query_db(sql):
     pass
 
-def get_weather(city: str):
-    print("Tool called: get_weather", city)
-    url = f"https://wttr.in/{city}?format=%C+%t"
-    response = requests.get(url)
-
-    if response.status_code == 200:
-        return f"The weather in {city} is {response.text}."
-    return "Something went wrong"
+def run_command(command):
+    result = os.system(command=command)
+    return result
+    #execute command
+    #return result
 
 available_tools = {
-    "get_weather": {
-        "fn": get_weather,
-        "description": "Takes city name as input and returns current weather of the city"
+    "run_command": {
+        "fn": run_command,
+        "description": "Takes a command as input to execute on system and returns output"
     }
 }
 
@@ -47,15 +44,16 @@ system_prompt = """
     }}
 
     Available Tools:
-    - get_weather: Takes a city name as an input and returns the current weather for the city
+    - run_command: Takes a command as input to execute on system and returns output
+
 
     Example:
-    User Query: What is the weather of new york?
-    Output: {{ "step": "plan", "content": "The user is interseted in weather data of new york" }}
-    Output: {{ "step": "plan", "content": "From the available tools I should call get_weather"}}
-    Output: {{ "step": "action", "function": "get_weather", "input": "new york"}}
-    Output: {{ "step": "observe", "output": "12 Degree Cel" }}
-    Outout: {{ "step": "output", "content": "The weather for new york seems to be 12 dearees."}}
+    User Query: create a file named magic.txt
+    Output: {{ "step": "plan", "content": "User wants to create a file magic.txt" }}
+    Output: {{ "step": "plan", "content": "From the available tools I should call run_command"}}
+    Output: {{ "step": "action", "function": "run_command", "input": "touch magic.txt"}}
+    Output: {{ "step": "observe", "output": "exit_code=0, stdout=, stderr=" }}
+    Outout: {{ "step": "output", "content": "Created magic.txt in the current directory"}}
 """
 
 messages = [
