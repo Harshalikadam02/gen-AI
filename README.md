@@ -1,5 +1,5 @@
-# 💎 GEN-AI  🚀  
-🌸 *AI Experiments | Google Gemini | Hugging Face | OpenAI | Internship-Ready Portfolio* 🌸  
+# GEN-AI  🚀  
+ *AI Experiments | Google Gemini | Hugging Face | OpenAI | Internship-Ready Portfolio* 🌸  
 
 ---
 
