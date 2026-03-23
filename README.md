@@ -17,9 +17,14 @@ This repository is my **AI playground** where I experiment with:
 ✅ **Google Gemini API Integration** (`gemini-1.5-pro`, `gemini-1.5-flash`)  
 ✅ **Hugging Face Transformers** for offline inference (e.g., `distilgpt2`)  
 ✅ **OpenAI GPT APIs** for chat & embeddings  
+✅ **Advanced RAG (Retrieval-Augmented Generation)** with multi-vector support  
+✅ **Vector Database Integration** (Qdrant) for semantic search  
+✅ **Graph Database** (Neo4j) for knowledge graph operations  
+✅ **Memory Management** with persistent storage and history  
 ✅ **Response Caching** to avoid unnecessary API hits & save free-tier quota  
+✅ **Docker Compose** for containerized services (Qdrant, Neo4j)  
 ✅ Environment variables for secure API key management  
-✅ Clean codebase ready for future app development  
+✅ Clean, modular codebase ready for production deployment  
 
 ---
 
@@ -35,18 +40,49 @@ This repository is my **AI playground** where I experiment with:
 
 ## 📂 Project Structure
 GEN-AI COHORT/
-├── chat_gemini.py # Chat with Google Gemini
-├── embedding.py # Embedding generation (OpenAI/HF)
-├── chat.py # Chat with OpenAI GPT models
-├── tokenization.py # Tokenizer utility scripts
-├── requirements.txt # Python dependencies
-├── .env # API keys (not tracked in Git)
-├── response_cache.json # Cached API responses
+├── chat_gemini.py            # Chat with Google Gemini
+├── chat.py                   # Chat with OpenAI GPT models
+├── embedding.py              # Embedding generation (OpenAI/HF)
+├── advanced_rag.py           # Advanced RAG with multi-vector retrieval
+├── rag_1.py                  # RAG pipeline implementation
+├── mem.py                    # Memory management with persistent storage
+├── tokenization.py           # Tokenizer utility scripts
+├── weather_agent.py          # Weather API agent (demo)
+├── runcommand_agent.py       # Command execution agent
+├── ollama_api.py             # Ollama integration for local LLMs
+├── docker-compose.yml        # Docker config for Qdrant services
+├── docker-compose.graph.yml  # Docker config for Neo4j graph DB
+├── requirements.txt          # Python dependencies
+├── .env                      # API keys (not tracked in Git)
+├── response_cache.json       # Cached API responses
+└── README.md                 # Project documentation
 
 
 ---
 
-## 🏃‍♀️ Getting Started
+## � Recent Additions
+
+### 🤖 Advanced RAG System (`advanced_rag.py`)
+- Multi-vector retrieval for enhanced context understanding
+- Integrates with **Qdrant vector database** for semantic search
+- Hybrid retrieval combining sparse and dense vectors
+- Production-ready implementation for Q&A systems
+
+### 💾 Memory Management (`mem.py`)
+- Persistent memory storage with history tracking
+- Session-based memory for context retention
+- Integration with mem0 framework for intelligent memory
+- Reset and cleanup utilities for session management
+
+### 📊 Graph Database Support (`docker-compose.graph.yml`)
+- Neo4j integration for knowledge graph operations
+- APOC plugins enabled for advanced graph operations
+- Secure authentication and file-based import/export
+- Ideal for complex relationship modeling
+
+---
+
+## �🏃‍♀️ Getting Started
 ### 1️⃣ Clone the Repository
 ```bash
 git clone https://github.com/<your-username>/gen-ai-cohort.git
