@@ -3,14 +3,17 @@ import requests
 from dotenv import load_dotenv
 from openai import OpenAI
 import os
+from langsmith.wrappers import wrap_openai
+from langsmith import traceable
 
 load_dotenv()
 
-client = OpenAI()
+client = wrap_openai(OpenAI())
 
 def query_db(sql):
     pass
 
+@traceable
 def get_weather(city: str):
     print("Tool called: get_weather", city)
     url = f"https://wttr.in/{city}?format=%C+%t"
